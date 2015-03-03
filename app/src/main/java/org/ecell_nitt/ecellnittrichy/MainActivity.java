@@ -97,27 +97,29 @@ public class MainActivity extends ActionBarActivity {
         if (scanResult != null) {
             // handle scan result
             //Toast.makeText(MainActivity.this, scanResult.getContents().toString(), Toast.LENGTH_SHORT).show();
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            // set title
-            alertDialogBuilder.setTitle("Scanned Message");
+            if(scanResult.getContents()!=null) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                // set title
+                alertDialogBuilder.setTitle("Scanned Message");
 
-            // set dialog message
-            alertDialogBuilder
-                    .setMessage(scanResult.getContents().toString())
-                    .setCancelable(false)
-                    .setPositiveButton("OK",new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,int id) {
-                            // if this button is clicked, close
-                            // current activity
-                            dialog.cancel();
-                        }
-                    });
+                // set dialog message
+                alertDialogBuilder
+                        .setMessage(scanResult.getContents())
+                        .setCancelable(false)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // if this button is clicked, close
+                                // current activity
+                                dialog.cancel();
+                            }
+                        });
 
-            // create alert dialog
-            AlertDialog alertDialog = alertDialogBuilder.create();
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
 
-            // show it
-            alertDialog.show();
+                // show it
+                alertDialog.show();
+            }
         }
     }
 
