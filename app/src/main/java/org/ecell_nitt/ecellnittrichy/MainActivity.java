@@ -151,6 +151,10 @@ public class MainActivity extends ActionBarActivity {
             //intentIntegrator.setResultDisplayDuration(10);
             intentIntegrator.initiateScan(); // `this` is the current Activity
         }
+        if(id==R.id.action_fb)
+        {
+            webview.loadUrl("https://www.facebook.com/ecell.nit.trichy");
+        }
 
         return super.onOptionsItemSelected(item);
     }
